@@ -1,0 +1,7 @@
+/vendor/
+/dist/
+/.phpcs-cache
+/.idea/
+/.vscode/
+*.log
+/assets/images/*-source.png

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ruleset name="MRN Mailora">
+	<description>WordPress coding standards for MRN Mailora.</description>
+	<file>mrn-mailora.php</file>
+	<file>src</file>
+	<file>uninstall.php</file>
+	<arg name="basepath" value="."/>
+	<arg name="colors"/>
+	<arg value="ps"/>
+	<config name="ignore_warnings_on_exit" value="1"/>
+	<rule ref="WordPress">
+		<!-- PSR-4 class names intentionally use StudlyCaps filenames. -->
+		<exclude name="WordPress.Files.FileName"/>
+		<!-- The code is type-declared; exhaustive method docblocks add noise. -->
+		<exclude name="Squiz.Commenting"/>
+		<exclude name="Generic.Commenting.DocComment"/>
+		<!-- Binary encoding is required for MIME, authenticated ciphertext and OAuth. -->
+		<exclude name="WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode"/>
+		<exclude name="WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode"/>
+		<!-- Mailora owns a custom operational log table, so direct queries are intentional. -->
+		<exclude name="WordPress.DB.DirectDatabaseQuery"/>
+	</rule>
+	<rule ref="PHPCompatibility"/>
+	<config name="testVersion" value="8.0-"/>
+</ruleset>

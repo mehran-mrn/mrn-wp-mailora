@@ -1,0 +1,189 @@
+:root {
+	--mailora-ink: #15142b;
+	--mailora-muted: #6b6a7e;
+	--mailora-border: #e8e7f1;
+	--mailora-surface: #ffffff;
+	--mailora-bg: #f5f5fa;
+	--mailora-violet: #6d4aff;
+	--mailora-violet-dark: #4b2fd1;
+	--mailora-cyan: #14b8d4;
+	--mailora-coral: #ff6b72;
+	--mailora-green: #10a779;
+	--mailora-shadow: 0 14px 38px rgba(31, 25, 69, .07);
+}
+
+body[class*="mailora"] #wpcontent { padding-left: 0; }
+.mailora-wrap { margin: 0; min-height: calc(100vh - 32px); padding: 0 34px 28px; color: var(--mailora-ink); background: radial-gradient(circle at 88% 0, rgba(109,74,255,.08), transparent 26%), var(--mailora-bg); font-family: Tahoma, Arial, sans-serif; }
+.mailora-wrap * { box-sizing: border-box; }
+.mailora-header { height: 82px; margin: 0 -34px 34px; padding: 0 34px; display: flex; align-items: center; gap: 34px; background: rgba(255,255,255,.94); border-bottom: 1px solid var(--mailora-border); backdrop-filter: blur(14px); position: sticky; top: 32px; z-index: 20; }
+.mailora-brand { display: flex; align-items: center; gap: 11px; min-width: 210px; direction: ltr; }
+.mailora-brand img { width: 46px; height: 46px; object-fit: contain; filter: drop-shadow(0 7px 10px rgba(63,44,160,.18)); }
+.mailora-brand div { display: flex; flex-direction: column; }
+.mailora-brand strong { font: 800 18px/1.1 Arial,sans-serif; letter-spacing: -.5px; color: #1d1743; }
+.mailora-brand strong span { color: var(--mailora-violet); }
+.mailora-brand small { margin-top: 4px; color: var(--mailora-muted); font-size: 10px; }
+.mailora-header nav { display: flex; align-items: stretch; align-self: stretch; gap: 6px; }
+.mailora-header nav a { position: relative; display: flex; align-items: center; padding: 0 18px; color: #626078; text-decoration: none; font-weight: 700; transition: .2s; }
+.mailora-header nav a:hover { color: var(--mailora-violet); }
+.mailora-header nav a.is-active { color: var(--mailora-violet); }
+.mailora-header nav a.is-active:after { content: ""; position: absolute; right: 15px; left: 15px; bottom: -1px; height: 3px; border-radius: 3px 3px 0 0; background: linear-gradient(90deg,var(--mailora-cyan),var(--mailora-violet)); }
+.mailora-version { margin-right: auto; direction: ltr; padding: 6px 10px; border-radius: 999px; color: #77738f; background: #f3f1fb; font: 700 11px Arial; }
+.mailora-page-title { max-width: 1440px; margin: 0 auto 25px; display: flex; align-items: center; justify-content: space-between; }
+.mailora-page-title h1 { margin: 0 0 7px; color: var(--mailora-ink); font-size: 27px; line-height: 1.3; font-weight: 800; }
+.mailora-page-title p { margin: 0; color: var(--mailora-muted); font-size: 13px; }
+.mailora-live { display: inline-flex; gap: 8px; align-items: center; padding: 8px 13px; color: #177559; background: #eafbf5; border: 1px solid #c8f1e2; border-radius: 999px; font-size: 11px; font-weight: 700; }
+.mailora-live i,.mailora-status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mailora-green); box-shadow: 0 0 0 4px rgba(16,167,121,.12); }
+.mailora-hero,.mailora-card,.mailora-stat,.mailora-sticky-save { max-width: 1440px; margin-right: auto; margin-left: auto; }
+.mailora-hero { min-height: 280px; padding: 44px 50px; display: flex; align-items: center; justify-content: space-between; overflow: hidden; position: relative; color: white; border-radius: 24px; background: radial-gradient(circle at 15% 120%, rgba(26,184,212,.65), transparent 34%), radial-gradient(circle at 90% -20%, rgba(139,92,246,.9), transparent 45%), linear-gradient(120deg,#171338 10%,#312371 70%,#4430a6); box-shadow: 0 22px 50px rgba(41,29,105,.18); }
+.mailora-hero:after { content: ""; position: absolute; inset: 0; opacity: .12; background-image: linear-gradient(rgba(255,255,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.2) 1px,transparent 1px); background-size: 32px 32px; mask-image: linear-gradient(90deg,#000,transparent); pointer-events: none; }
+.mailora-hero>div:first-child { max-width: 660px; position: relative; z-index: 2; }
+.mailora-eyebrow,.mailora-kicker { display: block; margin-bottom: 11px; color: #73d9f0; font: 800 10px/1.2 Arial,sans-serif; letter-spacing: 1.6px; direction: ltr; text-align: right; }
+.mailora-hero h2 { margin: 0 0 12px; color: white; font-size: 30px; line-height: 1.45; }
+.mailora-hero p { max-width: 610px; margin: 0; color: #d8d5ef; line-height: 2; font-size: 14px; }
+.mailora-actions { display: flex; gap: 10px; margin-top: 26px; }
+.mailora-button { appearance: none; min-height: 40px; padding: 8px 17px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; color: #3f3b56; background: white; border: 1px solid #dcd9ea; border-radius: 10px; font: 700 12px Tahoma,Arial,sans-serif; text-decoration: none; cursor: pointer; transition: transform .18s,box-shadow .18s,border-color .18s; }
+.mailora-button:hover { color: var(--mailora-violet); border-color: #bfb5fb; box-shadow: 0 7px 18px rgba(75,47,209,.1); transform: translateY(-1px); }
+.mailora-button:disabled { opacity: .55; cursor: wait; transform: none; }
+.mailora-button.is-primary { color: white; border-color: transparent; background: linear-gradient(135deg,var(--mailora-violet),var(--mailora-violet-dark)); box-shadow: 0 10px 20px rgba(88,57,222,.22); }
+.mailora-button.is-danger { color: #c63c50; border-color: #f4cbd1; }
+.mailora-button.is-quiet { background: #fff8f8; }
+.mailora-button.is-wide { width: 100%; }
+.mailora-hero .mailora-button:not(.is-primary) { color: white; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.22); backdrop-filter: blur(8px); }
+.mailora-health-orbit { width: 170px; height: 170px; margin-left: 50px; flex: 0 0 auto; display: grid; place-items: center; position: relative; z-index: 2; border-radius: 50%; background: conic-gradient(#6ee7df calc(var(--rate) * 1%),rgba(255,255,255,.13) 0); box-shadow: 0 0 70px rgba(37,211,238,.13); }
+.mailora-health-orbit:before { content: ""; position: absolute; inset: 11px; border-radius: inherit; background: #29205d; }
+.mailora-health-orbit div { z-index: 1; display: flex; flex-direction: column; text-align: center; }
+.mailora-health-orbit strong { font: 800 33px/1 Arial,sans-serif; direction: ltr; }
+.mailora-health-orbit span { margin-top: 8px; color: #c9c5e6; font-size: 11px; }
+.mailora-stat-grid { max-width: 1440px; margin: 18px auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 15px; }
+.mailora-stat { min-height: 125px; padding: 21px; display: flex; align-items: center; gap: 17px; background: var(--mailora-surface); border: 1px solid var(--mailora-border); border-radius: 16px; box-shadow: var(--mailora-shadow); }
+.mailora-stat>.dashicons { width: 42px; height: 42px; display: grid; place-items: center; color: var(--mailora-violet); background: #f1edff; border-radius: 12px; font-size: 22px; }
+.mailora-stat.success>.dashicons { color: var(--mailora-green); background: #eafbf5; }
+.mailora-stat.danger>.dashicons { color: var(--mailora-coral); background: #fff0f1; }
+.mailora-stat div { display: grid; }
+.mailora-stat small { color: var(--mailora-muted); }
+.mailora-stat strong { margin: 6px 0; color: var(--mailora-ink); font: 800 23px Arial,sans-serif; direction: ltr; text-align: right; }
+.mailora-stat em { color: #9a98aa; font-size: 10px; font-style: normal; }
+.mailora-grid { max-width: 1440px; margin: 16px auto; display: grid; gap: 16px; }
+.mailora-grid-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.mailora-card { margin-top: 16px; padding: 25px; background: var(--mailora-surface); border: 1px solid var(--mailora-border); border-radius: 18px; box-shadow: var(--mailora-shadow); }
+.mailora-grid .mailora-card { margin-top: 0; }
+.mailora-card-head { margin-bottom: 19px; display: flex; align-items: center; justify-content: space-between; }
+.mailora-card-head h3,.mailora-card h3 { margin: 0; color: var(--mailora-ink); font-size: 15px; }
+.mailora-card-head a { color: var(--mailora-violet); font-size: 11px; text-decoration: none; }
+.mailora-kicker { margin-bottom: 5px; color: #9995ae; }
+.mailora-provider-active,.mailora-identity { display: flex; align-items: center; gap: 15px; padding: 17px; background: #f8f7fc; border-radius: 13px; }
+.mailora-provider-active>.dashicons,.mailora-identity>span { width: 48px; height: 48px; flex: 0 0 48px; display: grid; place-items: center; color: white; background: linear-gradient(145deg,var(--mailora-violet),#2f79df); border-radius: 14px; font-size: 23px; }
+.mailora-provider-active div,.mailora-identity div { display: grid; gap: 6px; }
+.mailora-provider-active strong,.mailora-identity strong { font-size: 13px; }
+.mailora-provider-active p { margin: 0; color: var(--mailora-muted); font-size: 11px; }
+.mailora-identity code { color: var(--mailora-violet-dark); background: transparent; direction: ltr; text-align: right; }
+.mailora-section-title { display: flex; align-items: center; gap: 13px; margin-bottom: 24px; padding-bottom: 19px; border-bottom: 1px solid #efedf5; }
+.mailora-section-title>span { width: 34px; height: 34px; display: grid; place-items: center; flex: 0 0 auto; color: white; background: linear-gradient(145deg,var(--mailora-violet),#8b5cf6); border-radius: 10px; font: 800 14px Arial; }
+.mailora-section-title h3 { margin: 0 0 5px; }
+.mailora-section-title p { margin: 0; color: var(--mailora-muted); font-size: 11px; }
+.mailora-form-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.mailora-field { display: grid; gap: 8px; color: #3a3850; font-weight: 700; font-size: 11px; }
+.mailora-field input,.mailora-field select,.mailora-toolbar input,.mailora-toolbar select { width: 100%; min-height: 44px; padding: 8px 12px; color: var(--mailora-ink); background: #fbfbfd; border: 1px solid #dedce9; border-radius: 10px; box-shadow: none; font: 400 12px Tahoma,Arial,sans-serif; direction: rtl; }
+.mailora-field input[type=email],.mailora-field input[type=password],.mailora-field input[name*="host"],.mailora-field input[name*="key"],.mailora-field input[name*="client"],.mailora-field input[name*="username"] { direction: ltr; text-align: left; }
+.mailora-field input:focus,.mailora-field select:focus,.mailora-toolbar input:focus,.mailora-toolbar select:focus { border-color: var(--mailora-violet); box-shadow: 0 0 0 3px rgba(109,74,255,.1); outline: none; }
+.mailora-field small { color: #8b899a; font-weight: 400; line-height: 1.8; }
+.mailora-toggle-row { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 20px; }
+.mailora-toggle { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.mailora-toggle input { position: absolute; opacity: 0; pointer-events: none; }
+.mailora-toggle>i { width: 38px; height: 22px; padding: 3px; display: flex; align-items: center; background: #ccc9d7; border-radius: 99px; transition: .2s; direction: ltr; }
+.mailora-toggle>i:after { content: ""; width: 16px; height: 16px; border-radius: 50%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,.2); transition: transform .2s; }
+.mailora-toggle input:checked+i { background: var(--mailora-violet); }
+.mailora-toggle input:checked+i:after { transform: translateX(16px); }
+.mailora-toggle>span { display: grid; gap: 4px; }
+.mailora-toggle strong { font-size: 11px; }
+.mailora-toggle small { max-width: 300px; color: var(--mailora-muted); font-size: 9px; font-weight: 400; }
+.mailora-provider-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
+.mailora-provider-card { min-height: 160px; padding: 17px; display: grid; grid-template-columns: 36px 1fr auto; grid-template-rows: auto auto 1fr; align-items: center; gap: 5px 9px; position: relative; background: #fbfbfd; border: 1px solid #e4e2ed; border-radius: 14px; cursor: pointer; transition: .18s; }
+.mailora-provider-card:hover { border-color: #c9c2ee; transform: translateY(-2px); }
+.mailora-provider-card.is-active { background: linear-gradient(145deg,#f9f7ff,#f3f7ff); border-color: var(--mailora-violet); box-shadow: 0 8px 22px rgba(79,51,203,.1); }
+.mailora-provider-card input { position: absolute; opacity: 0; }
+.mailora-provider-card>.dashicons { width: 36px; height: 36px; display: grid; place-items: center; grid-row: 1/3; color: var(--mailora-violet); background: #eee9ff; border-radius: 10px; font-size: 18px; }
+.mailora-provider-card strong { font-size: 11px; }
+.mailora-provider-card small { color: #9996aa; font: 700 8px Arial; direction: ltr; text-align: right; }
+.mailora-provider-card p { grid-column: 1/-1; align-self: start; margin: 8px 0 0; color: var(--mailora-muted); font-size: 9.5px; line-height: 1.8; }
+.mailora-provider-card>i { display: none; position: absolute; top: 8px; left: 8px; color: var(--mailora-green); }
+.mailora-provider-card.is-active>i { display: block; }
+.mailora-provider-configs { margin-top: 20px; }
+.mailora-provider-config { display: none; padding: 22px; background: #f8f7fc; border: 1px solid #ece9f4; border-radius: 14px; }
+.mailora-provider-config.is-active { display: block; animation: mailora-in .22s ease both; }
+.mailora-config-head { margin-bottom: 17px; }
+.mailora-config-head h3 { font-size: 13px; }
+.mailora-callout,.mailora-oauth-box { padding: 15px; display: flex; align-items: center; gap: 12px; background: #eef7ff; border: 1px solid #d6eafa; border-radius: 11px; }
+.mailora-callout .dashicons { color: #2580c8; }
+.mailora-callout p,.mailora-oauth-box p { margin: 0; color: #577084; font-size: 10px; line-height: 1.8; }
+.mailora-oauth-box { margin-top: 18px; justify-content: space-between; background: #f1efff; border-color: #dfd9ff; }
+.mailora-oauth-box strong { display: block; margin-bottom: 4px; font-size: 11px; }
+.mailora-sticky-save { margin-top: 16px; padding: 14px 18px; display: flex; align-items: center; justify-content: flex-end; gap: 18px; position: sticky; bottom: 12px; z-index: 10; background: rgba(255,255,255,.94); border: 1px solid var(--mailora-border); border-radius: 14px; box-shadow: 0 14px 35px rgba(31,25,69,.12); backdrop-filter: blur(12px); }
+.mailora-sticky-save span { margin-left: auto; color: var(--mailora-muted); font-size: 10px; }
+.mailora-toolbar { display: flex; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+.mailora-toolbar form { display: grid; grid-template-columns: minmax(220px,380px) 150px auto; gap: 8px; flex: 1; }
+.mailora-table-wrap { overflow-x: auto; }
+.mailora-table { width: 100%; border-collapse: collapse; }
+.mailora-table th { padding: 11px 12px; color: #88859a; background: #f8f7fb; border-bottom: 1px solid #ebe9f1; text-align: right; font-size: 9px; }
+.mailora-table td { padding: 14px 12px; border-bottom: 1px solid #efedf4; color: #555268; font-size: 10px; vertical-align: middle; }
+.mailora-table tr:last-child td { border-bottom: 0; }
+.mailora-table td:nth-child(2) { min-width: 280px; }
+.mailora-table td:nth-child(2)>strong,.mailora-table td:nth-child(2)>small,.mailora-table td:nth-child(2)>em { display: block; }
+.mailora-table td:nth-child(2)>strong { color: var(--mailora-ink); direction: ltr; text-align: right; font-size: 10px; }
+.mailora-table td:nth-child(2)>small { margin-top: 5px; color: #858294; }
+.mailora-table td:nth-child(2)>em { margin-top: 7px; padding: 6px 8px; color: #bd3a4d; background: #fff2f3; border-radius: 6px; font-style: normal; line-height: 1.6; }
+.mailora-table code { padding: 4px 7px; color: var(--mailora-violet-dark); background: #f0edff; border-radius: 5px; font-size: 9px; }
+.mailora-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 8px; color: #777386; background: #f0eff4; border-radius: 99px; font-size: 9px; font-weight: 700; white-space: nowrap; }
+.mailora-badge i { width: 6px; height: 6px; background: currentColor; border-radius: 50%; }
+.mailora-badge.is-success { color: #167b5b; background: #e8faf3; }
+.mailora-badge.is-danger { color: #c13c50; background: #fff0f2; }
+.mailora-empty { padding: 55px 20px; display: grid; place-items: center; text-align: center; color: var(--mailora-muted); }
+.mailora-empty .dashicons { width: 54px; height: 54px; display: grid; place-items: center; margin-bottom: 13px; color: #9b8eef; background: #f0edff; border-radius: 16px; font-size: 26px; }
+.mailora-empty strong { color: var(--mailora-ink); }
+.mailora-empty p { margin-bottom: 0; font-size: 11px; }
+.mailora-test-card,.mailora-diagnostics-card { padding: 32px; }
+.mailora-card-icon { width: 54px; height: 54px; margin-bottom: 18px; display: grid; place-items: center; color: white; background: linear-gradient(145deg,#12b8d4,#267cdd); border-radius: 16px; box-shadow: 0 10px 22px rgba(20,184,212,.2); }
+.mailora-card-icon.is-violet { background: linear-gradient(145deg,var(--mailora-violet),#8b5cf6); }
+.mailora-card-icon .dashicons { width: auto; height: auto; font-size: 26px; }
+.mailora-test-card>p,.mailora-diagnostics-card>p { margin: 8px 0 23px; color: var(--mailora-muted); font-size: 11px; line-height: 1.8; }
+.mailora-test-card form { display: grid; gap: 14px; }
+.mailora-result { margin-top: 16px; padding: 13px; color: #147253; background: #eafaf4; border: 1px solid #c7efdf; border-radius: 10px; font-size: 11px; line-height: 1.8; }
+.mailora-result.is-error { color: #ae3548; background: #fff1f2; border-color: #f3cbd1; }
+.mailora-diagnostic-list { display: grid; gap: 8px; margin-top: 16px; }
+.mailora-diagnostic-item { padding: 10px 12px; display: flex; justify-content: space-between; gap: 10px; color: #4b485e; background: #f8f7fc; border-radius: 9px; font-size: 10px; }
+.mailora-diagnostic-item i { color: var(--mailora-green); font-style: normal; }
+.mailora-diagnostic-item.is-failed i { color: var(--mailora-coral); }
+.mailora-copy-field { display: flex; direction: ltr; }
+.mailora-copy-field code { flex: 1; padding: 12px; overflow: auto; background: #f7f6fb; border: 1px solid #e3e0ed; border-radius: 9px 0 0 9px; white-space: nowrap; }
+.mailora-copy-field button { padding: 0 18px; color: white; background: var(--mailora-violet); border: 0; border-radius: 0 9px 9px 0; cursor: pointer; }
+.mailora-toast { max-width: 430px; padding: 13px 17px; position: fixed; left: 28px; bottom: 28px; z-index: 99; color: white; background: #1e1b3d; border-radius: 11px; box-shadow: 0 15px 40px rgba(20,18,43,.25); font-size: 11px; animation: mailora-in .25s ease; }
+.mailora-toast.is-error { background: #a72c44; }
+.mailora-footer { max-width: 1440px; margin: 30px auto 0; padding-top: 20px; display: flex; justify-content: space-between; color: #918fa0; border-top: 1px solid #e4e2eb; font-size: 9px; }
+.mailora-footer a { color: var(--mailora-violet); text-decoration: none; }
+@keyframes mailora-in { from { opacity:0; transform:translateY(5px) } to { opacity:1; transform:none } }
+@media (max-width:1200px) {
+	.mailora-provider-grid { grid-template-columns: repeat(3,1fr); }
+	.mailora-stat-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width:782px) {
+	.mailora-wrap { padding: 0 14px 20px; }
+	.mailora-header { height: auto; margin: 0 -14px 24px; padding: 14px; top: 46px; flex-wrap: wrap; gap: 12px; }
+	.mailora-header nav { width: 100%; order: 3; overflow-x: auto; }
+	.mailora-header nav a { padding: 10px 14px; white-space: nowrap; }
+	.mailora-version { margin-right: auto; }
+	.mailora-page-title { align-items: flex-start; gap: 15px; }
+	.mailora-hero { padding: 30px 24px; }
+	.mailora-health-orbit { display: none; }
+	.mailora-stat-grid,.mailora-grid-2,.mailora-form-grid { grid-template-columns: 1fr; }
+	.mailora-provider-grid { grid-template-columns: repeat(2,1fr); }
+	.mailora-toolbar { align-items: stretch; flex-direction: column; }
+	.mailora-toolbar form { grid-template-columns: 1fr; }
+}
+@media (max-width:480px) {
+	.mailora-provider-grid { grid-template-columns: 1fr; }
+	.mailora-stat-grid { grid-template-columns: 1fr; }
+	.mailora-page-title .mailora-live { display: none; }
+	.mailora-actions { align-items: stretch; flex-direction: column; }
+}
+@media (prefers-reduced-motion:reduce) { .mailora-wrap * { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }
+
