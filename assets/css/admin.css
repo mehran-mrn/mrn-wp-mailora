@@ -27,7 +27,7 @@ body[class*="mailora"] #wpcontent { padding-left: 0; }
 .mailora-header nav a:hover { color: var(--mailora-violet); }
 .mailora-header nav a.is-active { color: var(--mailora-violet); }
 .mailora-header nav a.is-active:after { content: ""; position: absolute; right: 15px; left: 15px; bottom: -1px; height: 3px; border-radius: 3px 3px 0 0; background: linear-gradient(90deg,var(--mailora-cyan),var(--mailora-violet)); }
-.mailora-version { margin-right: auto; direction: ltr; padding: 6px 10px; border-radius: 999px; color: #77738f; background: #f3f1fb; font: 700 11px Arial; }
+.mailora-version { margin-inline-start: auto; direction: ltr; padding: 6px 10px; border-radius: 999px; color: #77738f; background: #f3f1fb; font: 700 11px Arial; }
 .mailora-page-title { max-width: 1440px; margin: 0 auto 25px; display: flex; align-items: center; justify-content: space-between; }
 .mailora-page-title h1 { margin: 0 0 7px; color: var(--mailora-ink); font-size: 27px; line-height: 1.3; font-weight: 800; }
 .mailora-page-title p { margin: 0; color: var(--mailora-muted); font-size: 13px; }
@@ -37,7 +37,7 @@ body[class*="mailora"] #wpcontent { padding-left: 0; }
 .mailora-hero { min-height: 280px; padding: 44px 50px; display: flex; align-items: center; justify-content: space-between; overflow: hidden; position: relative; color: white; border-radius: 24px; background: radial-gradient(circle at 15% 120%, rgba(26,184,212,.65), transparent 34%), radial-gradient(circle at 90% -20%, rgba(139,92,246,.9), transparent 45%), linear-gradient(120deg,#171338 10%,#312371 70%,#4430a6); box-shadow: 0 22px 50px rgba(41,29,105,.18); }
 .mailora-hero:after { content: ""; position: absolute; inset: 0; opacity: .12; background-image: linear-gradient(rgba(255,255,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.2) 1px,transparent 1px); background-size: 32px 32px; mask-image: linear-gradient(90deg,#000,transparent); pointer-events: none; }
 .mailora-hero>div:first-child { max-width: 660px; position: relative; z-index: 2; }
-.mailora-eyebrow,.mailora-kicker { display: block; margin-bottom: 11px; color: #73d9f0; font: 800 10px/1.2 Arial,sans-serif; letter-spacing: 1.6px; direction: ltr; text-align: right; }
+.mailora-eyebrow,.mailora-kicker { display: block; margin-bottom: 11px; color: #73d9f0; font: 800 10px/1.2 Arial,sans-serif; letter-spacing: 1.6px; direction: ltr; text-align: start; }
 .mailora-hero h2 { margin: 0 0 12px; color: white; font-size: 30px; line-height: 1.45; }
 .mailora-hero p { max-width: 610px; margin: 0; color: #d8d5ef; line-height: 2; font-size: 14px; }
 .mailora-actions { display: flex; gap: 10px; margin-top: 26px; }
@@ -49,7 +49,7 @@ body[class*="mailora"] #wpcontent { padding-left: 0; }
 .mailora-button.is-quiet { background: #fff8f8; }
 .mailora-button.is-wide { width: 100%; }
 .mailora-hero .mailora-button:not(.is-primary) { color: white; background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.22); backdrop-filter: blur(8px); }
-.mailora-health-orbit { width: 170px; height: 170px; margin-left: 50px; flex: 0 0 auto; display: grid; place-items: center; position: relative; z-index: 2; border-radius: 50%; background: conic-gradient(#6ee7df calc(var(--rate) * 1%),rgba(255,255,255,.13) 0); box-shadow: 0 0 70px rgba(37,211,238,.13); }
+.mailora-health-orbit { width: 170px; height: 170px; margin-inline-start: 50px; flex: 0 0 auto; display: grid; place-items: center; position: relative; z-index: 2; border-radius: 50%; background: conic-gradient(#6ee7df calc(var(--rate) * 1%),rgba(255,255,255,.13) 0); box-shadow: 0 0 70px rgba(37,211,238,.13); }
 .mailora-health-orbit:before { content: ""; position: absolute; inset: 11px; border-radius: inherit; background: #29205d; }
 .mailora-health-orbit div { z-index: 1; display: flex; flex-direction: column; text-align: center; }
 .mailora-health-orbit strong { font: 800 33px/1 Arial,sans-serif; direction: ltr; }
@@ -61,7 +61,7 @@ body[class*="mailora"] #wpcontent { padding-left: 0; }
 .mailora-stat.danger>.dashicons { color: var(--mailora-coral); background: #fff0f1; }
 .mailora-stat div { display: grid; }
 .mailora-stat small { color: var(--mailora-muted); }
-.mailora-stat strong { margin: 6px 0; color: var(--mailora-ink); font: 800 23px Arial,sans-serif; direction: ltr; text-align: right; }
+.mailora-stat strong { margin: 6px 0; color: var(--mailora-ink); font: 800 23px Arial,sans-serif; direction: ltr; text-align: start; }
 .mailora-stat em { color: #9a98aa; font-size: 10px; font-style: normal; }
 .mailora-grid { max-width: 1440px; margin: 16px auto; display: grid; gap: 16px; }
 .mailora-grid-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
@@ -76,14 +76,14 @@ body[class*="mailora"] #wpcontent { padding-left: 0; }
 .mailora-provider-active div,.mailora-identity div { display: grid; gap: 6px; }
 .mailora-provider-active strong,.mailora-identity strong { font-size: 13px; }
 .mailora-provider-active p { margin: 0; color: var(--mailora-muted); font-size: 11px; }
-.mailora-identity code { color: var(--mailora-violet-dark); background: transparent; direction: ltr; text-align: right; }
+.mailora-identity code { color: var(--mailora-violet-dark); background: transparent; direction: ltr; text-align: start; }
 .mailora-section-title { display: flex; align-items: center; gap: 13px; margin-bottom: 24px; padding-bottom: 19px; border-bottom: 1px solid #efedf5; }
 .mailora-section-title>span { width: 34px; height: 34px; display: grid; place-items: center; flex: 0 0 auto; color: white; background: linear-gradient(145deg,var(--mailora-violet),#8b5cf6); border-radius: 10px; font: 800 14px Arial; }
 .mailora-section-title h3 { margin: 0 0 5px; }
 .mailora-section-title p { margin: 0; color: var(--mailora-muted); font-size: 11px; }
 .mailora-form-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
 .mailora-field { display: grid; gap: 8px; color: #3a3850; font-weight: 700; font-size: 11px; }
-.mailora-field input,.mailora-field select,.mailora-toolbar input,.mailora-toolbar select { width: 100%; min-height: 44px; padding: 8px 12px; color: var(--mailora-ink); background: #fbfbfd; border: 1px solid #dedce9; border-radius: 10px; box-shadow: none; font: 400 12px Tahoma,Arial,sans-serif; direction: rtl; }
+.mailora-field input,.mailora-field select,.mailora-toolbar input,.mailora-toolbar select { width: 100%; min-height: 44px; padding: 8px 12px; color: var(--mailora-ink); background: #fbfbfd; border: 1px solid #dedce9; border-radius: 10px; box-shadow: none; font: 400 12px Tahoma,Arial,sans-serif; direction: inherit; text-align: start; }
 .mailora-field input[type=email],.mailora-field input[type=password],.mailora-field input[name*="host"],.mailora-field input[name*="key"],.mailora-field input[name*="client"],.mailora-field input[name*="username"] { direction: ltr; text-align: left; }
 .mailora-field input:focus,.mailora-field select:focus,.mailora-toolbar input:focus,.mailora-toolbar select:focus { border-color: var(--mailora-violet); box-shadow: 0 0 0 3px rgba(109,74,255,.1); outline: none; }
 .mailora-field small { color: #8b899a; font-weight: 400; line-height: 1.8; }
@@ -104,9 +104,9 @@ body[class*="mailora"] #wpcontent { padding-left: 0; }
 .mailora-provider-card input { position: absolute; opacity: 0; }
 .mailora-provider-card>.dashicons { width: 36px; height: 36px; display: grid; place-items: center; grid-row: 1/3; color: var(--mailora-violet); background: #eee9ff; border-radius: 10px; font-size: 18px; }
 .mailora-provider-card strong { font-size: 11px; }
-.mailora-provider-card small { color: #9996aa; font: 700 8px Arial; direction: ltr; text-align: right; }
+.mailora-provider-card small { color: #9996aa; font: 700 8px Arial; direction: ltr; text-align: start; }
 .mailora-provider-card p { grid-column: 1/-1; align-self: start; margin: 8px 0 0; color: var(--mailora-muted); font-size: 9.5px; line-height: 1.8; }
-.mailora-provider-card>i { display: none; position: absolute; top: 8px; left: 8px; color: var(--mailora-green); }
+.mailora-provider-card>i { display: none; position: absolute; top: 8px; inset-inline-end: 8px; color: var(--mailora-green); }
 .mailora-provider-card.is-active>i { display: block; }
 .mailora-provider-configs { margin-top: 20px; }
 .mailora-provider-config { display: none; padding: 22px; background: #f8f7fc; border: 1px solid #ece9f4; border-radius: 14px; }
@@ -119,17 +119,17 @@ body[class*="mailora"] #wpcontent { padding-left: 0; }
 .mailora-oauth-box { margin-top: 18px; justify-content: space-between; background: #f1efff; border-color: #dfd9ff; }
 .mailora-oauth-box strong { display: block; margin-bottom: 4px; font-size: 11px; }
 .mailora-sticky-save { margin-top: 16px; padding: 14px 18px; display: flex; align-items: center; justify-content: flex-end; gap: 18px; position: sticky; bottom: 12px; z-index: 10; background: rgba(255,255,255,.94); border: 1px solid var(--mailora-border); border-radius: 14px; box-shadow: 0 14px 35px rgba(31,25,69,.12); backdrop-filter: blur(12px); }
-.mailora-sticky-save span { margin-left: auto; color: var(--mailora-muted); font-size: 10px; }
+.mailora-sticky-save span { margin-inline-end: auto; color: var(--mailora-muted); font-size: 10px; }
 .mailora-toolbar { display: flex; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
 .mailora-toolbar form { display: grid; grid-template-columns: minmax(220px,380px) 150px auto; gap: 8px; flex: 1; }
 .mailora-table-wrap { overflow-x: auto; }
 .mailora-table { width: 100%; border-collapse: collapse; }
-.mailora-table th { padding: 11px 12px; color: #88859a; background: #f8f7fb; border-bottom: 1px solid #ebe9f1; text-align: right; font-size: 9px; }
+.mailora-table th { padding: 11px 12px; color: #88859a; background: #f8f7fb; border-bottom: 1px solid #ebe9f1; text-align: start; font-size: 9px; }
 .mailora-table td { padding: 14px 12px; border-bottom: 1px solid #efedf4; color: #555268; font-size: 10px; vertical-align: middle; }
 .mailora-table tr:last-child td { border-bottom: 0; }
 .mailora-table td:nth-child(2) { min-width: 280px; }
 .mailora-table td:nth-child(2)>strong,.mailora-table td:nth-child(2)>small,.mailora-table td:nth-child(2)>em { display: block; }
-.mailora-table td:nth-child(2)>strong { color: var(--mailora-ink); direction: ltr; text-align: right; font-size: 10px; }
+.mailora-table td:nth-child(2)>strong { color: var(--mailora-ink); direction: ltr; text-align: start; font-size: 10px; }
 .mailora-table td:nth-child(2)>small { margin-top: 5px; color: #858294; }
 .mailora-table td:nth-child(2)>em { margin-top: 7px; padding: 6px 8px; color: #bd3a4d; background: #fff2f3; border-radius: 6px; font-style: normal; line-height: 1.6; }
 .mailora-table code { padding: 4px 7px; color: var(--mailora-violet-dark); background: #f0edff; border-radius: 5px; font-size: 9px; }
@@ -156,7 +156,7 @@ body[class*="mailora"] #wpcontent { padding-left: 0; }
 .mailora-copy-field { display: flex; direction: ltr; }
 .mailora-copy-field code { flex: 1; padding: 12px; overflow: auto; background: #f7f6fb; border: 1px solid #e3e0ed; border-radius: 9px 0 0 9px; white-space: nowrap; }
 .mailora-copy-field button { padding: 0 18px; color: white; background: var(--mailora-violet); border: 0; border-radius: 0 9px 9px 0; cursor: pointer; }
-.mailora-toast { max-width: 430px; padding: 13px 17px; position: fixed; left: 28px; bottom: 28px; z-index: 99; color: white; background: #1e1b3d; border-radius: 11px; box-shadow: 0 15px 40px rgba(20,18,43,.25); font-size: 11px; animation: mailora-in .25s ease; }
+.mailora-toast { max-width: 430px; padding: 13px 17px; position: fixed; inset-inline-start: 28px; bottom: 28px; z-index: 99; color: white; background: #1e1b3d; border-radius: 11px; box-shadow: 0 15px 40px rgba(20,18,43,.25); font-size: 11px; animation: mailora-in .25s ease; }
 .mailora-toast.is-error { background: #a72c44; }
 .mailora-footer { max-width: 1440px; margin: 30px auto 0; padding-top: 20px; display: flex; justify-content: space-between; color: #918fa0; border-top: 1px solid #e4e2eb; font-size: 9px; }
 .mailora-footer a { color: var(--mailora-violet); text-decoration: none; }
@@ -170,7 +170,7 @@ body[class*="mailora"] #wpcontent { padding-left: 0; }
 	.mailora-header { height: auto; margin: 0 -14px 24px; padding: 14px; top: 46px; flex-wrap: wrap; gap: 12px; }
 	.mailora-header nav { width: 100%; order: 3; overflow-x: auto; }
 	.mailora-header nav a { padding: 10px 14px; white-space: nowrap; }
-	.mailora-version { margin-right: auto; }
+	.mailora-version { margin-inline-start: auto; }
 	.mailora-page-title { align-items: flex-start; gap: 15px; }
 	.mailora-hero { padding: 30px 24px; }
 	.mailora-health-orbit { display: none; }
@@ -187,3 +187,10 @@ body[class*="mailora"] #wpcontent { padding-left: 0; }
 }
 @media (prefers-reduced-motion:reduce) { .mailora-wrap * { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }
 
+.mailora-wrap[dir="ltr"] { font-family: Arial, sans-serif; }
+.mailora-wrap[dir="ltr"] .mailora-button,
+.mailora-wrap[dir="ltr"] .mailora-field input,
+.mailora-wrap[dir="ltr"] .mailora-field select,
+.mailora-wrap[dir="ltr"] .mailora-toolbar input,
+.mailora-wrap[dir="ltr"] .mailora-toolbar select { font-family: Arial, sans-serif; }
+.mailora-wrap[dir="rtl"] .mailora-brand small { direction: rtl; text-align: right; }

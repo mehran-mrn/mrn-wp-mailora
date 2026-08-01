@@ -8,16 +8,16 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-ارسال حرفه‌ای ایمیل وردپرس با SMTP، API، OAuth، گزارش‌گیری امن و پنل مدیریتی فارسی.
+Professional WordPress email delivery with SMTP, API, OAuth, secure logging, and a bilingual English/Persian admin experience.
 
 == Description ==
 
-MRN Mailora یک لایه مستقل و حرفه‌ای برای تحویل ایمیل‌های وردپرس است.
+MRN Mailora is an independent, production-focused delivery layer for WordPress email.
 
-= روش‌های ارسال =
+= Delivery methods =
 
-* ارسال پیش‌فرض وردپرس
-* SMTP با TLS/SSL
+* Native WordPress delivery
+* SMTP with TLS/SSL
 * SendGrid
 * Brevo
 * Mailgun
@@ -25,46 +25,46 @@ MRN Mailora یک لایه مستقل و حرفه‌ای برای تحویل ای
 * Resend
 * MailerSend
 * SMTP2GO
-* Gmail API با OAuth 2.0
-* Microsoft Graph با OAuth 2.0
+* Gmail API with OAuth 2.0
+* Microsoft Graph with OAuth 2.0
 * Amazon SES API v2
 
-= امکانات =
+= Features =
 
-* رمزنگاری احرازشده اطلاعات حساس
-* گزارش ارسال با رویکرد privacy-first
-* داشبورد آمار و وضعیت تحویل
-* ایمیل آزمایشی و عیب‌یابی MX/SPF
-* پشتیبانی CC، BCC، Reply-To و پیوست
-* سازگار با RTL و موبایل
-* ابزار WP-CLI
-* بدون تله‌متری و وابستگی زمان اجرا
+* Authenticated encryption for sensitive credentials
+* Privacy-first delivery logs
+* Delivery metrics dashboard
+* Test email and MX/SPF diagnostics
+* CC, BCC, Reply-To, and attachment support
+* English/LTR and Persian/RTL interfaces
+* WP-CLI tools
+* No telemetry or runtime dependency
 
 == Installation ==
 
-1. فایل ZIP را از بخش افزونه‌های وردپرس بارگذاری کنید.
-2. افزونه MRN Mailora را فعال کنید.
-3. از منوی Mailora وارد تنظیمات ارسال شوید.
-4. روش ارسال را پیکربندی و یک ایمیل آزمایشی ارسال کنید.
+1. Upload the ZIP from the WordPress Plugins screen.
+2. Activate MRN Mailora.
+3. Open Mailora and choose Delivery Settings.
+4. Configure a delivery method and send a test email.
 
 == Frequently Asked Questions ==
 
-= آیا محتوای ایمیل ذخیره می‌شود؟ =
+= Is email content stored? =
 
-خیر. ذخیره پیش‌نمایش محتوا به‌صورت پیش‌فرض خاموش است و باید آگاهانه فعال شود.
+No. Content previews are disabled by default and must be enabled explicitly.
 
-= اطلاعات API چگونه نگهداری می‌شوند؟ =
+= How are API credentials stored? =
 
-کلیدها با Sodium یا AES-256-GCM و کلیدی مشتق‌شده از saltهای وردپرس رمز می‌شوند.
+Credentials are encrypted with Sodium or AES-256-GCM using a key derived from WordPress salts.
 
-= آیا با ووکامرس و فرم‌سازها سازگار است؟ =
+= Does it work with WooCommerce and form plugins? =
 
-بله. Mailora مسیر استاندارد wp_mail را مدیریت می‌کند و با افزونه‌هایی که از API استاندارد وردپرس استفاده می‌کنند سازگار است.
+Yes. Mailora manages the standard wp_mail pipeline and works with plugins that use the WordPress mail API.
 
 == Changelog ==
 
 = 1.0.0 =
 
-* انتشار نخست.
-* ۱۲ روش ارسال بومی، SMTP، API و OAuth.
-* پنل مدیریت، گزارش، تست، عیب‌یابی و WP-CLI.
+* Initial release.
+* 12 native, SMTP, API, and OAuth delivery methods.
+* Bilingual admin, logs, tests, diagnostics, and WP-CLI.

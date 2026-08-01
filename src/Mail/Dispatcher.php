@@ -8,6 +8,7 @@
 namespace MRN\Mailora\Mail;
 
 use MRN\Mailora\Core\Settings;
+use MRN\Mailora\Core\I18n;
 use MRN\Mailora\Infrastructure\LogRepository;
 
 defined( 'ABSPATH' ) || exit;
@@ -111,15 +112,15 @@ final class Dispatcher {
 	public function send_test( string $to ): Result {
 		$this->last_result = null;
 		$site              = wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES );
-		$body              = '<div dir="rtl" style="font-family:Tahoma,Arial,sans-serif;max-width:620px;margin:auto;padding:34px;border:1px solid #e7e5f4;border-radius:20px">'
-			. '<h2 style="color:#312e81">Mailora با موفقیت ایمیل را ارسال کرد ✨</h2>'
-			. '<p>این یک پیام آزمایشی از سایت <strong>' . esc_html( $site ) . '</strong> است.</p>'
-			. '<p style="color:#64748b">روش ارسال: ' . esc_html( $this->settings->provider_id() ) . '<br>زمان: ' . esc_html( wp_date( 'Y/m/d H:i:s' ) ) . '</p></div>';
-		$ok                = wp_mail( $to, 'آزمایش ارسال MRN Mailora — ' . $site, $body, array( 'Content-Type: text/html; charset=UTF-8' ) );
+		$body              = '<div dir="' . esc_attr( I18n::direction() ) . '" style="font-family:Tahoma,Arial,sans-serif;max-width:620px;margin:auto;padding:34px;border:1px solid #e7e5f4;border-radius:20px">'
+			. '<h2 style="color:#312e81">' . esc_html( I18n::translate( 'Mailora sent the email successfully ✨', 'Mailora با موفقیت ایمیل را ارسال کرد ✨' ) ) . '</h2>'
+			. '<p>' . esc_html( I18n::translate( 'This is a test message from', 'این یک پیام آزمایشی از سایت' ) ) . ' <strong>' . esc_html( $site ) . '</strong>.</p>'
+			. '<p style="color:#64748b">' . esc_html( I18n::translate( 'Delivery method:', 'روش ارسال:' ) ) . ' ' . esc_html( $this->settings->provider_id() ) . '<br>' . esc_html( I18n::translate( 'Time:', 'زمان:' ) ) . ' ' . esc_html( wp_date( 'Y/m/d H:i:s' ) ) . '</p></div>';
+		$ok                = wp_mail( $to, I18n::translate( 'MRN Mailora delivery test — ', 'آزمایش ارسال MRN Mailora — ' ) . $site, $body, array( 'Content-Type: text/html; charset=UTF-8' ) );
 		if ( $this->last_result ) {
 			return $this->last_result;
 		}
-		return $ok ? Result::success() : Result::failure( 'وردپرس نتیجه ناموفق برگرداند. گزارش خطا را بررسی کنید.' );
+		return $ok ? Result::success() : Result::failure( I18n::translate( 'WordPress reported a failure. Check the error log.', 'وردپرس نتیجه ناموفق برگرداند. گزارش خطا را بررسی کنید.' ) );
 	}
 
 	private function elapsed(): int {

@@ -61,7 +61,7 @@ final class Plugin {
 
 	/** @param array<int, string> $links */
 	public function action_links( array $links ): array {
-		array_unshift( $links, '<a href="' . esc_url( admin_url( 'admin.php?page=mrn-mailora' ) ) . '">مرکز ارسال</a>' );
+		array_unshift( $links, '<a href="' . esc_url( admin_url( 'admin.php?page=mrn-mailora' ) ) . '">' . esc_html( I18n::translate( 'Delivery Center', 'مرکز ارسال' ) ) . '</a>' );
 		return $links;
 	}
 

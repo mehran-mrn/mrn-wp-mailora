@@ -2,12 +2,12 @@
 /**
  * Plugin Name:       MRN Mailora
  * Plugin URI:        https://github.com/mehran-mrn/mrn-wp-mailora
- * Description:       زیرساخت حرفه‌ای و امن ارسال ایمیل وردپرس با SMTP، API، OAuth، گزارش‌گیری و عیب‌یابی.
+ * Description:       Secure WordPress email delivery with SMTP, API, OAuth, reporting, and diagnostics.
  * Version:           1.0.0
  * Requires at least: 6.4
  * Requires PHP:      8.0
- * Author:            Mehran MRN
- * Author URI:        https://github.com/mehran-mrn
+ * Author:            mehran marandi
+ * Author URI:        https://mehranmarandi.ir
  * Text Domain:       mrn-mailora
  * Domain Path:       /languages
  * License:           GPL-2.0-or-later

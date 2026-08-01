@@ -42,7 +42,7 @@
 			radio.addEventListener('change', () => chooseProvider(radio.value));
 		});
 		settingsForm.addEventListener('input', () => {
-			if (saveState) saveState.textContent = 'تغییرات هنوز ذخیره نشده‌اند.';
+			if (saveState) saveState.textContent = cfg.i18n.unsaved;
 		});
 		settingsForm.addEventListener('submit', async (event) => {
 			event.preventDefault();
@@ -67,12 +67,12 @@
 				const json = await response.json();
 				if (!response.ok || !json.success) throw new Error(json?.data?.message || cfg.i18n.error);
 				toast(json.data.message || cfg.i18n.saved);
-				if (saveState) saveState.textContent = 'همه تغییرات ذخیره شده‌اند.';
+				if (saveState) saveState.textContent = cfg.i18n.allSaved;
 			} catch (error) {
 				toast(error.message, true);
 			} finally {
 				button.disabled = false;
-				button.textContent = 'ذخیره تنظیمات';
+				button.textContent = cfg.i18n.saveSettings;
 			}
 		});
 	}
@@ -88,7 +88,7 @@
 			result.hidden = true;
 			try {
 				const data = await request('mrn_mailora_test_email', { to: $('[name="to"]', testForm).value });
-				result.textContent = data.message + (data.remoteId ? ` شناسه: ${data.remoteId}` : '');
+				result.textContent = data.message + (data.remoteId ? ` ${cfg.i18n.remoteId} ${data.remoteId}` : '');
 				result.classList.remove('is-error');
 				result.hidden = false;
 				toast(data.message);
@@ -99,7 +99,7 @@
 				toast(error.message, true);
 			} finally {
 				button.disabled = false;
-				button.textContent = 'ارسال آزمایشی';
+				button.textContent = cfg.i18n.sendTest;
 			}
 		});
 	}
@@ -107,7 +107,7 @@
 	const clearLogs = $('#mailora-clear-logs');
 	if (clearLogs) {
 		clearLogs.addEventListener('click', async () => {
-			if (!window.confirm('تمام گزارش‌های ایمیل پاک شوند؟ این عملیات قابل بازگشت نیست.')) return;
+			if (!window.confirm(cfg.i18n.confirmClear)) return;
 			clearLogs.disabled = true;
 			try {
 				const data = await request('mrn_mailora_clear_logs');
@@ -143,7 +143,7 @@
 				toast(error.message, true);
 			} finally {
 				diagnostics.disabled = false;
-				diagnostics.textContent = 'اجرای دوباره بررسی';
+				diagnostics.textContent = cfg.i18n.runAgain;
 			}
 		});
 	}
@@ -152,9 +152,9 @@
 		button.addEventListener('click', async () => {
 			try {
 				await navigator.clipboard.writeText(button.dataset.copy);
-				toast('نشانی در حافظه کپی شد.');
+				toast(cfg.i18n.copied);
 			} catch {
-				toast('کپی خودکار ممکن نبود.', true);
+				toast(cfg.i18n.copyFailed, true);
 			}
 		});
 	});

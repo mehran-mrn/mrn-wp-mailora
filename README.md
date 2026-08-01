@@ -14,7 +14,7 @@ MRN Mailora is a standalone, production-focused email delivery plugin for WordPr
 - Authenticated encryption for credentials using Sodium or AES-256-GCM
 - Privacy-first email logs (message bodies are off by default)
 - Delivery metrics, test email, SPF/MX diagnostics and Site Health data
-- Responsive Persian/RTL admin experience with accessible interaction states
+- Responsive bilingual English/LTR and Persian/RTL admin experience with accessible interaction states
 - WP-CLI status, test and log cleanup commands
 - Scheduled log retention and safe uninstall behavior
 - No runtime Composer dependency and no external telemetry
@@ -30,7 +30,7 @@ MRN Mailora is a standalone, production-focused email delivery plugin for WordPr
 1. Download `mrn-mailora-1.0.0.zip` from Releases.
 2. In WordPress, open **Plugins → Add New → Upload Plugin**.
 3. Activate **MRN Mailora**.
-4. Open **Mailora → تنظیمات ارسال**, select a transport, save credentials, and send a test email.
+4. Open **Mailora → Delivery Settings**, select a transport, save credentials, and send a test email.
 
 ## Provider notes
 
@@ -44,7 +44,7 @@ Create an API key with permission to send email. Verify the sender/domain in the
 
 ### Gmail
 
-Create an OAuth web application in Google Cloud, enable the Gmail API, and add the callback URL shown under **Mailora → آزمایش و عیب‌یابی** as an authorized redirect URI. Save the Client ID and Client Secret before clicking **اتصال حساب**.
+Create an OAuth web application in Google Cloud, enable the Gmail API, and add the callback URL shown under **Mailora → Testing & Diagnostics** as an authorized redirect URI. Save the Client ID and Client Secret before clicking **Connect Account**.
 
 Required scope:
 
@@ -129,3 +129,6 @@ define( 'MRN_MAILORA_REMOVE_DATA', true );
 
 GPL-2.0-or-later.
 
+## Author
+
+Created by [mehran marandi](https://mehranmarandi.ir).
