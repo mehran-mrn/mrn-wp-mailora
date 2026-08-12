@@ -7,6 +7,7 @@
 
 namespace MRN\Mailora\Mail;
 
+use MRN\Mailora\Core\I18n;
 use MRN\Mailora\Core\Settings;
 
 defined( 'ABSPATH' ) || exit;
@@ -24,7 +25,7 @@ final class ApiMailer implements MailerInterface {
 
 	public function send( Message $message ): Result {
 		if ( ! $message->recipients() ) {
-			return Result::failure( 'هیچ گیرنده معتبر ایمیلی پیدا نشد.' );
+			return Result::failure( I18n::translate( 'No valid email recipient was found.', 'هیچ گیرنده معتبر ایمیلی پیدا نشد.' ) );
 		}
 
 		$from = array(
@@ -32,7 +33,7 @@ final class ApiMailer implements MailerInterface {
 			'name'  => sanitize_text_field( (string) $this->settings->get( 'from_name', get_bloginfo( 'name' ) ) ),
 		);
 		if ( ! is_email( $from['email'] ) ) {
-			return Result::failure( 'نشانی فرستنده معتبر نیست.' );
+			return Result::failure( I18n::translate( 'The sender address is not valid.', 'نشانی فرستنده معتبر نیست.' ) );
 		}
 
 		try {
@@ -47,7 +48,7 @@ final class ApiMailer implements MailerInterface {
 				'gmail'      => $this->send_gmail( $message, $from ),
 				'microsoft'  => $this->send_microsoft( $message, $from ),
 				'ses'        => $this->send_ses( $message, $from ),
-				default      => Result::failure( 'ارسال‌گر انتخاب‌شده پشتیبانی نمی‌شود.' ),
+				default      => Result::failure( I18n::translate( 'The selected delivery provider is not supported.', 'ارسال‌گر انتخاب‌شده پشتیبانی نمی‌شود.' ) ),
 			};
 		} catch ( \Throwable $error ) {
 			return Result::failure( $error->getMessage(), array( 'exception' => get_class( $error ) ) );
@@ -368,7 +369,7 @@ final class ApiMailer implements MailerInterface {
 		$data = json_decode( $body, true );
 		if ( ! in_array( $code, $success, true ) ) {
 			$error = $data['message'] ?? $data['error']['message'] ?? $data['errors'][0]['message'] ?? wp_remote_retrieve_response_message( $response );
-			return Result::failure( sprintf( 'پاسخ سرویس (%d): %s', $code, sanitize_text_field( (string) $error ) ), array( 'http_code' => $code ) );
+			return Result::failure( sprintf( I18n::translate( 'Service response (%1$d): %2$s', 'پاسخ سرویس (%1$d): %2$s' ), $code, sanitize_text_field( (string) $error ) ), array( 'http_code' => $code ) );
 		}
 		$id = (string) ( $data['id'] ?? $data['messageId'] ?? $data['MessageId'] ?? wp_remote_retrieve_header( $response, 'x-message-id' ) );
 		return Result::success( sanitize_text_field( $id ), array( 'http_code' => $code ) );

@@ -1,6 +1,12 @@
 {
   "name": "mehran-mrn/mrn-wp-mailora",
   "description": "Professional multi-transport email delivery for WordPress.",
+  "authors": [
+    {
+      "name": "mehran marandi",
+      "homepage": "https://mehranmarandi.ir"
+    }
+  ],
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
   "require": {
@@ -22,4 +28,3 @@
     "sort-packages": true
   }
 }
-

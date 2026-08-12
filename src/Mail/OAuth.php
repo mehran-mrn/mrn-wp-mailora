@@ -8,6 +8,7 @@
 namespace MRN\Mailora\Mail;
 
 use MRN\Mailora\Core\Settings;
+use MRN\Mailora\Core\I18n;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -33,7 +34,8 @@ final class OAuth {
 		set_transient( $this->state_key( $state ), $provider, 10 * MINUTE_IN_SECONDS );
 
 		if ( 'gmail' === $provider ) {
-			return add_query_arg(
+			return $this->authorization_endpoint(
+				'https://accounts.google.com/o/oauth2/v2/auth',
 				array(
 					'client_id'     => $config['client_id'],
 					'redirect_uri'  => $this->callback_url(),
@@ -42,13 +44,13 @@ final class OAuth {
 					'prompt'        => 'consent',
 					'scope'         => 'https://www.googleapis.com/auth/gmail.send',
 					'state'         => $state,
-				),
-				'https://accounts.google.com/o/oauth2/v2/auth'
+				)
 			);
 		}
 
 		$tenant = sanitize_text_field( (string) ( $config['tenant'] ?? 'common' ) );
-		return add_query_arg(
+		return $this->authorization_endpoint(
+			'https://login.microsoftonline.com/' . rawurlencode( $tenant ) . '/oauth2/v2.0/authorize',
 			array(
 				'client_id'     => $config['client_id'],
 				'redirect_uri'  => $this->callback_url(),
@@ -56,9 +58,20 @@ final class OAuth {
 				'response_mode' => 'query',
 				'scope'         => 'offline_access https://graph.microsoft.com/Mail.Send',
 				'state'         => $state,
-			),
-			'https://login.microsoftonline.com/' . rawurlencode( $tenant ) . '/oauth2/v2.0/authorize'
+			)
 		);
+	}
+
+	/**
+	 * Build an OAuth endpoint while preserving a callback URL that has its own query string.
+	 *
+	 * add_query_arg() does not reliably encode newly supplied nested URL values, so the
+	 * callback's ampersand can otherwise become a top-level OAuth parameter.
+	 *
+	 * @param array<string, scalar> $query OAuth query arguments.
+	 */
+	private function authorization_endpoint( string $endpoint, array $query ): string {
+		return $endpoint . '?' . http_build_query( $query, '', '&', PHP_QUERY_RFC3986 );
 	}
 
 	public function maybe_handle_callback(): void {
@@ -93,13 +106,13 @@ final class OAuth {
 	public function access_token( string $provider ): string|\WP_Error {
 		$config = $this->settings->provider( $provider );
 		if ( empty( $config['access_token'] ) ) {
-			return new \WP_Error( 'mailora_oauth_missing', 'حساب OAuth هنوز متصل نشده است.' );
+			return new \WP_Error( 'mailora_oauth_missing', I18n::translate( 'The OAuth account is not connected yet.', 'حساب OAuth هنوز متصل نشده است.' ) );
 		}
 		if ( (int) ( $config['token_expires_at'] ?? 0 ) > time() + 90 ) {
 			return (string) $config['access_token'];
 		}
 		if ( empty( $config['refresh_token'] ) ) {
-			return new \WP_Error( 'mailora_oauth_expired', 'نشست OAuth منقضی شده؛ حساب را دوباره متصل کنید.' );
+			return new \WP_Error( 'mailora_oauth_expired', I18n::translate( 'The OAuth session expired. Reconnect the account.', 'نشست OAuth منقضی شده؛ حساب را دوباره متصل کنید.' ) );
 		}
 
 		$tokens = $this->request_tokens( $provider, (string) $config['refresh_token'], true );
@@ -146,7 +159,7 @@ final class OAuth {
 		}
 		$data = json_decode( wp_remote_retrieve_body( $response ), true );
 		if ( wp_remote_retrieve_response_code( $response ) >= 300 || empty( $data['access_token'] ) ) {
-			return new \WP_Error( 'mailora_oauth_token', sanitize_text_field( (string) ( $data['error_description'] ?? $data['error'] ?? 'دریافت توکن OAuth ناموفق بود.' ) ) );
+			return new \WP_Error( 'mailora_oauth_token', sanitize_text_field( (string) ( $data['error_description'] ?? $data['error'] ?? I18n::translate( 'Could not obtain an OAuth token.', 'دریافت توکن OAuth ناموفق بود.' ) ) ) );
 		}
 		return $data;
 	}
